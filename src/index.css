@@ -1,15 +1,131 @@
-/* Below I took the Manrope font's URL and imported it so I can use it when I call the "var()" function and type "--font-family" since I set it so "--font-family: Manrope" that way I wouldn't need to type the whole font name everytime I use the font. */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+/* Below I took the Poppins font's URL and imported it so it would be my default font style */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+/* The "*" makes it so all parts of my website has those styles in default */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    /* I learnt that this meant that every "li" (list item) bullet points will be removed. */ 
+    list-style: none;
+    text-decoration: none;
+}
 /* ":root {}" actually represents the html tag, and is identical to the selector html, except that its specificity is higher. */
 :root {
-  --font-family: 'Manrope', sans-serif;
+    --color-bg: #1F1F38;
+    --color-bg-variant: #2C2C6C;
+    --color-primary: #4DB5FF;
+    --color-primary-variant: rgba(77, 181, 255, 0.4);
+    --color-white: #FFF;
+    --color-light: rgba(255, 255, 255, 0.6);
 
-  --gradient-text: linear-gradient(89.97deg, #AE67FA 1.84%, #F49867 102.67%);
-  --gradient-bar: linear-gradient(103.22deg, #AE67FA -13.86%, #F49867 99.55%);
-  
-  --color-bg: #040C18;
-  --color-footer : #031B34;
-  --color-blog: #042c54;
-  --color-text: #81AFDD;
-  --color-subtext: #FF8A71;
+    --transition: all 400ms ease;
+
+    --container-width-lg: 75%;
+    --container-width-md: 86%;
+    --container-width-sm: 90%;
+}
+/* Made it so the website scrolls smoothly */
+html {
+    scroll-behavior: smooth;
+}
+/* Added a webkit so the scroll bar won't show on my website */
+::-webkit-scrollbar {
+    display: none;
+}
+/* Styles for the body tag */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--color-bg);
+    color: var(--color-white);
+    line-height: 1.7;
+}
+
+/* ============== GENERAL STYLES ============== */
+.container {
+    width: var(--container-width-lg);
+    margin: 0 auto;
+}
+/* Styles for my header tags */
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+}
+/* Styles for my h1 tag */
+h1 {
+    font-size: 2.5rem;
+}
+/* Styles for my section tag */
+section {
+    margin-top: 8rem;
+}
+/* The ">" means CSS rules will be applied to elements which are direct children of the particular element. */
+section > h2, section > h5 {
+    text-align: center;
+    color: var(--color-light);
+}
+
+section > h2 {
+    color: var(--color-primary);
+    margin-bottom: 3rem;
+}
+/* Styles for the "text-light" classname */
+.text-light {
+    color: var(--color-light);
+}
+/* Styles for the anchor tag */
+a{
+    color: var(--color-primary);
+    transition: var(--transition);
+}
+/* Styles for the anchor tag when your cursor is hovered over the anchor */
+a:hover {
+    color: var(--color-primary);
+    transform: scale(1.6);
+}
+/* Styles for the "btn" classname */
+.btn {
+    width: max-content;
+    display: inline-block;
+    color: var(--color-primary);
+    padding: 0.75rem 1.2rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    border: 1px solid var(--color-primary);
+    transition: var(--transition);
+}
+/* Styles for the "btn" classname when your cursor is hovered over it */
+.btn:hover {
+    color: var(--color-bg);
+    background: #2196F3;
+    box-shadow: 0 0 20px #2196F3;
+    transition-delay: 0.1s;
+}
+/* Styles for the img tag */
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* ============== MEDIA QUERIES (MEDIUM DEVICES) ============== */
+@media screen and (max-width: 1024px) {
+    .container {
+        width: var(--container-width-md);
+    }
+
+    section {
+        margin-top: 6rem;
+    }
+}
+
+/* ============== MEDIA QUERIES (SMALL DEVICES) ============== */
+@media screen and (max-width: 600px) {
+    .container {
+        width: var(--container-width-sm);
+    }
+
+    section > h2 {
+        margin-bottom: 2rem;
+    }
 }
